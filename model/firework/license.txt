@@ -1,0 +1,11 @@
+Model Information:
+* title:	Hello Neighbor Fireworks
+* source:	https://sketchfab.com/3d-models/hello-neighbor-fireworks-26910061be9240fa948510ffc5845e7c
+* author:	Catsmen (https://sketchfab.com/catsmen)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Hello Neighbor Fireworks" (https://sketchfab.com/3d-models/hello-neighbor-fireworks-26910061be9240fa948510ffc5845e7c) by Catsmen (https://sketchfab.com/catsmen) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

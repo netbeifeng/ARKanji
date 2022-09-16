@@ -1,0 +1,11 @@
+Model Information:
+* title:	Train
+* source:	https://sketchfab.com/3d-models/train-1a87a133a54c40fdb313f87e7cdc398f
+* author:	metrosp (https://sketchfab.com/metrosp)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Train" (https://sketchfab.com/3d-models/train-1a87a133a54c40fdb313f87e7cdc398f) by metrosp (https://sketchfab.com/metrosp) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

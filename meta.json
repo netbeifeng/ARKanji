@@ -1,0 +1,15 @@
+{
+    "monji": [
+        {"id": 1, "kanji": "火", "onyomi":"カ", "kunyomi":"ひ・ほ", "utf8": "E781AB", "model": "model/fire/scene.gltf"},
+        {"id": 2, "kanji": "日", "onyomi":"ニチ・ジツ", "kunyomi":"ひ・か", "utf8": "E697A5", "model": "model/sun/scene.gltf"},
+        {"id": 3, "kanji": "花", "onyomi":"カ", "kunyomi":"はな", "utf8": "E88AB1", "model": "model/flower/scene.gltf"},
+        {"id": 4, "kanji": "本", "onyomi":"ホン", "kunyomi":"もと", "utf8": "E69CAC", "model": "model/book/scene.gltf"},
+        {"id": 5, "kanji": "電", "onyomi":"デン", "kunyomi":"いなずま", "utf8": "E99BBB", "model": "model/electricity/scene.gltf"},
+        {"id": 6, "kanji": "車", "onyomi":"シャ", "kunyomi":"くるま", "utf8": "E8BB8A", "model": "model/car/scene.gltf"}
+    ],
+    "tango": [
+        {"id": 31, "kanji": "花火", "model": "model/firework/scene.gltf"},
+        {"id": 24, "kanji": "日本", "model": "model/japan/scene.gltf"},
+        {"id": 56, "kanji": "電車", "model": "model/train/scene.gltf"}
+    ]
+}

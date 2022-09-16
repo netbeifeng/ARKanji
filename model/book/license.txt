@@ -1,0 +1,11 @@
+Model Information:
+* title:	Medieval Open Book 1
+* source:	https://sketchfab.com/3d-models/medieval-open-book-1-b30b6a9018f842e7b12622387979b0fa
+* author:	J0Y (https://sketchfab.com/lloydrostek)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Medieval Open Book 1" (https://sketchfab.com/3d-models/medieval-open-book-1-b30b6a9018f842e7b12622387979b0fa) by J0Y (https://sketchfab.com/lloydrostek) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
