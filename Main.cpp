@@ -72,7 +72,9 @@ void drawLines(Tracker tracker, MetaManager metaManager, cv::Mat img) {
                     monjiCombinations.push_back(std::make_tuple(left.first, right.first, tangoId));
                 }
                 else {
-                    cv::line(img, left.second, right.second, cv::Scalar(0, 0, 255), 2);
+                    if (DRAW_ALL_LINES) {
+                        cv::line(img, left.second, right.second, cv::Scalar(0, 0, 255), 2);
+                    }
                 }
             }
         }

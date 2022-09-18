@@ -9,31 +9,19 @@ Try different Kanji-combinations to find the meaningful words!
 
 Here is the table of supported kanjis in the demo, you can also find it in [`meta.json`](meta.json).
 
-|       |  花   |  火   |  日   |  本   |  電   |  車   |
-| :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| Marker | ![Flower](etc/flower.png) |![Fire](etc/fire.png) |![Sun](etc/sun.png) |![Book](etc/book.png) |![Electricity](etc/electricity.png) |![Car](etc/car.png) |
-|UTF8| E88AB1 | E781AB| E697A5 | E69CAC | E99BBB | E8BB8A |
-|Meaning| Flower | Fire|Sun|Book|Electricity|Car|
-|Onyomi| カ |カ |ニチ・ジツ |ホン |デン |シャ |
-|Kunyomi|はな |ひ・ほ|ひ・か|もと|いなずま|くるま|
+|         |            花             |          火           |         日          |          本           |                 電                  |         車          |
+| :-----: | :-----------------------: | :-------------------: | :-----------------: | :-------------------: | :---------------------------------: | :-----------------: |
+| Marker  | ![Flower](etc/flower.png) | ![Fire](etc/fire.png) | ![Sun](etc/sun.png) | ![Book](etc/book.png) | ![Electricity](etc/electricity.png) | ![Car](etc/car.png) |
+|  UTF8   |          E88AB1           |        E781AB         |       E697A5        |        E69CAC         |               E99BBB                |       E8BB8A        |
+| Meaning |          Flower           |         Fire          |         Sun         |         Book          |             Electricity             |         Car         |
+| Onyomi  |            カ             |          カ           |     ニチ・ジツ      |         ホン          |                デン                 |        シャ         |
+| Kunyomi |           はな            |        ひ・ほ         |       ひ・か        |         もと          |              いなずま               |       くるま        |
 
 ## Pipeline
 
 ![Pipeline](etc/ARKanji_Pipeline.png)
 
 ## Demo
-Here are all possible combinations (tangos) presented on the screen.
-![All Markers On Screen](etc/all_on_screen.png)
-
-There is also a OpenCV window for monitoring the marker tracking status for sake of debugging.
-![OpenGL with OpenCV window](etc/OpenGL_OpenCV_display.png)
-|         Meaningful Combination         |           Unmeaningful Combination           |
-| :------------------------------------: | :------------------------------------------: |
-| ![Possible](etc/densya_meaningful.png) | ![Not Possible](etc/denhon_unmeaninggul.jpg) |
-
-|            Rotated Marker            |      Normally placed Marker       |
-| :----------------------------------: | :-------------------------------: |
-| ![Possible](etc/rotation_marker.png) | ![Not Possible](etc/firework.png) |
 
 **Warning**: The tangos in [meta.json](meta.json) doesn't cover all possible combinations of given monjis. For instance, you may notice that <ins>「日」(sun)</ins> and
 <ins>「本」(book)</ins> can be combined as <ins>「<ruby>
@@ -50,6 +38,26 @@ There is also a OpenCV window for monitoring the marker tracking status for sake
   火 <rp>(</rp><rt>ひ</rt><rp>)</rp>
   花 <rp>(</rp><rt>ばな</rt><rp>)</rp>
 </ruby>」(Sparkle)</ins>. In this demo we only consider 「花火」 and 「日本」, the reaason for that it's hard to find some free models to represent sparkle and toady. If you want to get more possible 「単語」(tango) combinations, just edit the [`meta.json`](meta.json) and make sure the corresponding model file also avaliable in [`model`](model/) folder.
+
+Here are all possible combinations (tangos) presented on the screen. Red line indicates that two Kanjis are not fit with each other, green on the contrary.
+|              All combination lines              |                 Only combinable lines                 |
+| :---------------------------------------------: | :---------------------------------------------------: |
+| ![All Markers On Screen](etc/all_on_screen.png) | ![Only Possible](etc/all_on_screen_only_possible.png) |
+
+
+
+There is also a OpenCV window for monitoring the marker tracking status for sake of debugging.
+![OpenGL with OpenCV window](etc/OpenGL_OpenCV_display.png)
+||         Meaningful Combination         |           Unmeaningful Combination           |
+| :-: | :------------------------------------: | :------------------------------------------: |
+|Screenshot| ![Possible](etc/densya_meaningful.png) | ![Not Possible](etc/denhon_unmeaninggul.jpg) |
+|単語(Tango)|                  電車                  |                     本電                     |
+
+| |            Rotated Marker            |      Normally placed Marker       |
+|:-:| :----------------------------------: | :-------------------------------: |
+|Screenshot| ![Possible](etc/rotation_marker.png) | ![Not Possible](etc/firework.png) |
+|単語(Tango)| 日本 | 花火 |
+
 
 ## Dependencies 
 
