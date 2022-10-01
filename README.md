@@ -94,7 +94,7 @@ It's recommendable to use vcpkg to manage the libraries, which is a package mana
 └── README.md
 ```
 
-You may check that [model](model/), [font](font/), [shader](shader/), [jpn_tess](jpn_tess) and [meta.json] are under the directory, they are necessary rescource files for starting the demo. You can use this [document](etc/ARKanji_Markers.docx) to print markers.
+You may check that [model](model/), [font](font/), [shader](shader/), [jpn_tess](jpn_tess) and [meta.json](meta.json) are under the directory, they are necessary rescource files for starting the demo. You can use this [document](etc/ARKanji_Markers.docx) to print markers.
 ## License
 [MIT License](./LICENSE)
 
