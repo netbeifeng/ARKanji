@@ -28,6 +28,14 @@ class MetaManager {
                 modelMap[tangos[i]["id"].asInt()] = model;
             }
         }
+         
+        int getMonjisSize() {
+            return monjis.size();
+        }
+
+        int getTangosSize() {
+            return tangos.size();
+        }
 
         int getIdByKanji(std::string kanji) {
             for (int i = 0; i < monjis.size(); i++) {
@@ -42,6 +50,15 @@ class MetaManager {
             for (int i = 0; i < monjis.size(); i++) {
                 if (id == monjis[i]["id"].asInt()) {
                     return monjis[i]["kanji"].asString();
+                }
+            }
+            return "";
+        }
+
+        std::string getTangoById(int id) {
+            for (int i = 0; i < tangos.size(); i++) {
+                if (id == tangos[i]["id"].asInt()) {
+                    return tangos[i]["kanji"].asString();
                 }
             }
             return "";

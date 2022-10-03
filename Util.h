@@ -36,7 +36,7 @@
 #define WINDOW_HEIGHT 480
 #define WINDOW_WIDTH 640
 
-#define DRAW_ALL_LINES 0
+#define DRAW_ALL_LINES 1
 
 /* PI */
 #ifndef M_PI
@@ -112,7 +112,7 @@ GLuint getShaderProgram(std::string fshader, std::string vshader)
 }
 
 // Init Tesseract API for Character Recognition
-tesseract::TessBaseAPI* initTesseract() {
+tesseract::TessBaseAPI* initTesseract(std::string whitelist) {
     tesseract::TessBaseAPI* api = new tesseract::TessBaseAPI();
     // Set DATA_PATH to traindata path
     if (api->Init(TESSERACT_DATA_PATH, "jpn", tesseract::OcrEngineMode::OEM_TESSERACT_ONLY)) {
@@ -122,6 +122,7 @@ tesseract::TessBaseAPI* initTesseract() {
     api->SetVariable("user_defined_dpi", "300");
     // block numbers and some special characters
     api->SetVariable("tessedit_char_blacklist", "0123456789!@#$%^&*()_+-=");
+    api->SetVariable("tessedit_char_whitelist", whitelist.c_str());
     // set Page Segmentation mode to detect just for single char (kanji)
     api->SetPageSegMode(tesseract::PSM_SINGLE_CHAR);
 

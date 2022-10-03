@@ -140,12 +140,11 @@ void renderObjs(Tracker tracker, MetaManager metaManager, GLuint program, FTFont
         }
     }
 }
-
 // Rendering the possible monjis combination => tangos
-void renderCombis(Tracker tracker, MetaManager modelManager, GLuint program) {
+void renderCombis(Tracker tracker, MetaManager modelManager, GLuint program, FTFont* font) {
     glEnable(GL_DEPTH_TEST);
     glMatrixMode(GL_MODELVIEW);
-    
+
     // Get the current furstum projection
     GLfloat projection[16];
     glGetFloatv(GL_PROJECTION_MATRIX, projection);
@@ -165,7 +164,7 @@ void renderCombis(Tracker tracker, MetaManager modelManager, GLuint program) {
         for (int i = 0; i < 4; i++) {
             m1MarkerCorners[i] += offset;
         }
-        
+
         // Now we have a virtual marker at the middle point of marker1 and marker2
 
         // Get the pose of that virtual marker
@@ -178,6 +177,25 @@ void renderCombis(Tracker tracker, MetaManager modelManager, GLuint program) {
             }
         }
 
+        glUseProgram(0);
+        glLoadMatrixf(resultTransposedMatrix);
+        glRotatef(-90, 1, 0, 0);
+        glRotatef(90, 0, 1, 0);
+        glRotatef(-90, 1, 0, 0);
+        glRotatef(180, 0, 0, 1);
+        glScalef(0.01, 0.01, 0.01);
+
+        // Set the Color for Font Rendering
+        glColor3f(0, 0.35, 0.6); // こんぺき -> https://irocore.com/konpeki/
+
+        // Rendering Tango Text
+        glTranslatef(-1, -5, 0);
+        font->Render((modelManager.getTangoById(std::get<2>(combiPair))).c_str());
+
+        glLoadIdentity();
+
+        glUseProgram(program);
+
         glm::mat4 tunning = modelManager.getModelTunningMatrix(std::get<2>(combiPair), glm::make_mat4(resultTransposedMatrix));
         GLuint location = glGetUniformLocation(program, "MVP");
         glUniformMatrix4fv(location, 1, GL_FALSE, glm::value_ptr(glm::make_mat4(projection) * tunning));
@@ -186,7 +204,6 @@ void renderCombis(Tracker tracker, MetaManager modelManager, GLuint program) {
         modelManager.getModelById(std::get<2>(combiPair)).draw(program);
     }
 }
-
 int main(int argc, char** argv)
 {
     // Read the meta.json contains the possible kanjis and tangos 
@@ -197,9 +214,6 @@ int main(int argc, char** argv)
     // Init FTGL font for text rendering in 3d
     FTFont* font = initFTGL();
     
-    // Init Tesseract for Kanji recognition
-    tesseract::TessBaseAPI* api = initTesseract();
-
     // Init OpenCV VideoStream read stream from camera
     cv::VideoCapture capture(0);
     if (!capture.isOpened()) {
@@ -238,14 +252,23 @@ int main(int argc, char** argv)
     std::cout << "GLEW okay - using version: " << glewGetString(GLEW_VERSION) << std::endl;
     initGL();
 
+    // MetaManager instance
+    // For loading Models of Monjis and Tangos
+    MetaManager metaManager = MetaManager(meta);
+
+    // Generate String for Tesseract char whitelist
+    std::string whiteListKanjis = "";
+    for (int i = 0; i < metaManager.getMonjisSize(); i++) {
+        whiteListKanjis += metaManager.getKanjiById(i);
+    }
+
+    // Init Tesseract for Kanji recognition
+    tesseract::TessBaseAPI* api = initTesseract(whiteListKanjis);
+
     // Tracker instance 
     // api => Tesseract API for recognizing marker content
     // meta["monji"] => only needs recognizing monjis part 
     Tracker tracker = Tracker(api, meta["monji"]);
-
-    // MetaManager instance
-    // For loading Models of Monjis and Tangos
-    MetaManager metaManager = MetaManager(meta);
 
     // Compiled Shader program for rendering imported models with textures
     GLuint program = getShaderProgram(FRAGMENT_SHADER_PATH, VERTEX_SHADER_PATH);
@@ -277,7 +300,7 @@ int main(int argc, char** argv)
 
         // Render found Tangos
         glUseProgram(program);
-        renderCombis(tracker, metaManager, program);
+        renderCombis(tracker, metaManager, program, font);
 
         // Clean all maps of old frame
         tracker.cleanDetectedMarkers();
